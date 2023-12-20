@@ -1,7 +1,8 @@
 <script setup></script>
 
 <template>
-  <h1>Hello vue3</h1>
+  <a-button type="primary">主色按钮</a-button>
+  <a-button type="dashed">主色按钮</a-button>
 </template>
 
 <style scoped></style>
