@@ -26,6 +26,7 @@ const router = createRouter({
       },
       component: () => import('@/views/Login/index.vue'),
     },
+    ...asyncRoutes,
   ],
 })
 
