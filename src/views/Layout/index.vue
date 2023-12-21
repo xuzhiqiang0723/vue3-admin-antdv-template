@@ -1,7 +1,11 @@
+<script setup>
+import AppSideBar from './components/AppSideBar.vue'
+</script>
+
 <template>
   <a-layout has-sider class="layout">
     <!-- 侧边栏 -->
-    <div>侧边栏</div>
+    <AppSideBar />
     <a-layout class="main">
       <!-- 页头 -->
       <div>页头</div>
