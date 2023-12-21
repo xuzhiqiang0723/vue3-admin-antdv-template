@@ -12,9 +12,7 @@ dayjs.locale('zh-cn')
 
 <template>
   <a-config-provider :theme="theme" :locale="zhCN">
-    <a-button type="primary"><HomeOutlined />主色按钮</a-button>
-    <a-pagination :total="500" />
-    <a href="#">hello World</a>
+    <router-view></router-view>
   </a-config-provider>
 </template>
 
