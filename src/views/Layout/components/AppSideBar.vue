@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <div>Logo</div>
+  <a-layout-sider theme="light" width="200" class="sidebar">
+    <h1 class="logo">
+      <RouterLink to="/"> Logo </RouterLink>
+    </h1>
     <AppSideBarMenu />
-  </div>
+  </a-layout-sider>
 </template>
 
 <script setup>
