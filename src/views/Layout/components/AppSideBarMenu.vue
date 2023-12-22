@@ -1,16 +1,16 @@
 <script lang="jsx">
-import { defineComponent, h, resolveComponent, computed } from 'vue'
+import { defineComponent, h, resolveComponent, computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'SideBarItem',
   setup() {
+    const openKeys = ref(['dashboard']) // 展开的一级菜单 key
+    const selectedKeys = ref(['Dashboard']) // 高亮的二级菜单 key
     const router = useRouter()
-
     const routes = computed(() => {
-      return router.options.routes
+      return router.options.routes.filter((v) => !v.hidden)
     })
-    console.log(routes.value)
 
     // 渲染侧栏菜单的函数
     const renderSubMenu = () => {
@@ -21,7 +21,6 @@ export default defineComponent({
           // 遍历路由对象
           _route.forEach((element) => {
             const { icon, title } = element.meta
-
             const node =
               element.children && element.children.length > 0 ? (
                 // 一级菜单：渲染 标题 和 图标
@@ -40,12 +39,21 @@ export default defineComponent({
         }
         return nodes
       }
+
       return travel(routes.value)
+    }
+    const onOpenChange = (openArr) => {
+      console.log(openArr)
     }
 
     // 返回一个函数，函数返回一个jsx(不用写template)
     return () => (
-      <a-menu theme="light" mode="inline">
+      <a-menu
+        theme="light"
+        mode="inline"
+        v-model:openKeys={openKeys.value}
+        v-model:selectedKeys={selectedKeys.value}
+      >
         {...renderSubMenu()}
       </a-menu>
     )

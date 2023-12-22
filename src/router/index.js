@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import { asyncRoutes } from './asyncRoutes.js'
+import { constantRoutes } from './constantRoutes.js'
 
 NProgress.configure({
   showSpinner: false,
@@ -9,25 +10,7 @@ NProgress.configure({
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      meta: {
-        title: '首页',
-      },
-      component: () => import('@/views/Layout/index.vue'),
-    },
-    {
-      path: '/login',
-      name: 'login',
-      meta: {
-        title: '登录页',
-      },
-      component: () => import('@/views/Login/index.vue'),
-    },
-    ...asyncRoutes,
-  ],
+  routes: [...constantRoutes, ...asyncRoutes],
 })
 
 router.beforeEach(() => {
