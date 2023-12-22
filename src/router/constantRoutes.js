@@ -16,7 +16,7 @@ export const constantRoutes = [
       {
         path: '/dashboard',
         name: 'Dashboard',
-        // component: () => import('@/views/Dashboard/index.vue'),
+        component: () => import('@/views/Dashboard/index.vue'),
         meta: { title: '数据面板', parent: 'dashboard' },
       },
     ],
@@ -24,7 +24,7 @@ export const constantRoutes = [
   // 捕获所有路由或 404 Not found 路由
   {
     path: '/:pathMatch(.*)',
-    // component: () => import('@/views/NotFound/index.vue'),
+    component: () => import('@/views/NotFound/index.vue'),
     meta: { title: '页面不存在' },
     hidden: true, // 侧边栏隐藏该路由
   },

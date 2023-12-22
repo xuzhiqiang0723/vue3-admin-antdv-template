@@ -9,19 +9,19 @@ export default {
       name: 'employee-courier',
       path: '/employee/courier',
       meta: { title: '快递员管理', parent: 'employee' },
-      // component: () => import('@/views/Employee/Courier/index.vue'),
+      component: () => import('@/views/Employee/Courier/index.vue'),
     },
     {
       name: 'employee-driver',
       path: '/employee/driver',
       meta: { title: '司机列表', parent: 'employee' },
-      // component: () => import('@/views/Employee/Driver/index.vue'),
+      component: () => import('@/views/Employee/Driver/index.vue'),
     },
     {
       name: 'employee-workArrange',
       path: '/employee/workArrange',
       meta: { title: '排班管理', parent: 'employee' },
-      // component: () => import('@/views/Employee/WorkArrange/index.vue'),
+      component: () => import('@/views/Employee/WorkArrange/index.vue'),
     },
   ],
 }

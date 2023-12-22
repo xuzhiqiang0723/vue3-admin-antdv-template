@@ -9,19 +9,19 @@ export default {
       name: 'car-carType',
       path: '/car/carType',
       meta: { title: '车型管理', parent: 'car' },
-      // component: () => import('@/views/Car/CarType/index.vue'),
+      component: () => import('@/views/Car/CarType/index.vue'),
     },
     {
       name: 'car-carList',
       path: '/car/carList',
       meta: { title: '车辆列表', parent: 'car' },
-      // component: () => import('@/views/Car/CarList/index.vue'),
+      component: () => import('@/views/Car/CarList/index.vue'),
     },
     {
       name: 'car-carCheck',
       path: '/car/carCheck',
       meta: { title: '车辆登记', parent: 'car' },
-      // component: () => import('@/views/Car/CarCheck/index.vue'),
+      component: () => import('@/views/Car/CarCheck/index.vue'),
     },
   ],
 }
