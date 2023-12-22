@@ -107,7 +107,21 @@ getWorkspaceData()
   color: var(--color-text-2);
 }
 </style> -->
-<script setup></script>
+<!-- <script setup></script>
 <template>
   <div>Dashboard</div>
+</template> -->
+<script setup>
+import { useAccountStore } from '@/store'
+
+// 获取用户 Store
+const accountStore = useAccountStore()
+</script>
+
+<template>
+  <h3>Store 角色: {{ accountStore.role }}</h3>
+  <a-button @click="accountStore.changeRole('admin')">切换角色 admin</a-button>
+  <a-button @click="accountStore.changeRole('user')">切换角色 user</a-button>
+  <a-button v-permission="['admin']">删除 admin</a-button>
+  <a-button v-permission="['user']">删除 user</a-button>
 </template>

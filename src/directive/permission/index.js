@@ -1,11 +1,12 @@
 // import { usePermissionStore } from '@/stores'
+import { useAccountStore } from '@/store'
 
 // 权限校验方法
 function checkPermission(el, { value }) {
   // 获取用户角色
   // const { currentRole } = usePermissionStore()
-  const currentRole = 'admin'
-
+  const currentRole = useAccountStore().role
+  console.log('currentRole', currentRole)
   // 传入的权限值要求是一个数组
   if (Array.isArray(value)) {
     if (value.length > 0) {
