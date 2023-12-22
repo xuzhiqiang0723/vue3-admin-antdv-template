@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'SideBarItem',
   setup() {
-    const openKeys = ref(['dashboard']) // 展开的一级菜单 key
+    const openKeys = ref(['dashboard']) // 展开的一级菜单 数组
     const selectedKeys = ref(['Dashboard']) // 高亮的二级菜单 key
     const router = useRouter()
     const routes = computed(() => {
@@ -53,9 +53,6 @@ export default defineComponent({
       }
 
       return travel(routes.value)
-    }
-    const onOpenChange = (openArr) => {
-      console.log(openArr)
     }
 
     // 返回一个函数，函数返回一个jsx(不用写template)
