@@ -1,5 +1,5 @@
 <script lang="jsx">
-import { defineComponent, h, resolveComponent, computed, ref } from 'vue'
+import { defineComponent, h, resolveComponent, computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
@@ -11,6 +11,18 @@ export default defineComponent({
     const routes = computed(() => {
       return router.options.routes.filter((v) => !v.hidden)
     })
+    // 监听路由变化，更新选中的菜单
+    watch(
+      () => router.currentRoute.value,
+      (route) => {
+        // 设置一级菜单高亮
+        openKeys.value = [route.meta?.parent]
+        // 设置二级菜单高亮
+        selectedKeys.value = [route.path]
+      },
+      // 立即执行
+      { immediate: true },
+    )
 
     // 渲染侧栏菜单的函数
     const renderSubMenu = () => {
